@@ -1,12 +1,13 @@
-package com.rodovalho.pokedex
+package com.rodovalho.pokedex.ui.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.rodovalho.pokedex.R
 
-class MainActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_detail)
     }
 }
