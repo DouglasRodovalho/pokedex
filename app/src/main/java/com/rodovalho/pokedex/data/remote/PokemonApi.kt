@@ -34,7 +34,7 @@ interface PokemonApi {
                         .build()
 
                     val retrofit = Retrofit.Builder()
-                        .baseUrl("")
+                        .baseUrl("http://pokeapi.salestock.net/api/v2/")
                         .client(httpClient)
                         .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create())
