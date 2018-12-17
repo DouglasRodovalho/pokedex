@@ -1,4 +1,3 @@
 package com.rodovalho.pokedex.model
 
-class Sprite {
-}
+data class Sprite (val front_default: String)

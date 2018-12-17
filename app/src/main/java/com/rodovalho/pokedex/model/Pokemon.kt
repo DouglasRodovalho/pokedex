@@ -5,5 +5,6 @@ data class Pokemon (
     val name: String,
     val weight: Int,
     val height: Int,
-    val order: Int
+    val order: Int,
+    val sprites: Sprite
 )
