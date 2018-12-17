@@ -3,7 +3,7 @@ package com.rodovalho.pokedex.ui.util
 import android.arch.lifecycle.ViewModel
 import com.rodovalho.pokedex.data.PokemonDataSource
 import com.rodovalho.pokedex.model.Pokemon
-import rx.Observable
+import io.reactivex.Observable
 
 class PokemonViewModel : ViewModel() {
     private var pokemons = mutableListOf<Pokemon>()
@@ -18,7 +18,7 @@ class PokemonViewModel : ViewModel() {
 
     fun load(page: Int) : Observable<Pokemon> {
         return if (page <= currentPage) {
-            Observable.from(pokemons)
+            Observable.fromIterable(pokemons)
         } else {
             currentPage = page
             PokemonDataSource().loadPokemons(limit, page)

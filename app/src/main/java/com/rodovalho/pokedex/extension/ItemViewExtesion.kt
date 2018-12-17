@@ -11,7 +11,6 @@ import java.lang.Exception
 fun ImageView.load(url: String, progressBar: ProgressBar, textView: TextView) {
     Picasso.get()
         .load(url)
-        .centerCrop()
         .into(this, object : Callback {
             override fun onSuccess() {
                 progressBar.visibility = View.GONE

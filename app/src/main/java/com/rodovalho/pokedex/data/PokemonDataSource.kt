@@ -3,7 +3,7 @@ package com.rodovalho.pokedex.data
 import android.net.Uri
 import com.rodovalho.pokedex.data.remote.PokemonApi
 import com.rodovalho.pokedex.model.Pokemon
-import rx.Observable
+import io.reactivex.Observable
 
 class PokemonDataSource {
 
@@ -11,7 +11,7 @@ class PokemonDataSource {
                      , offset: Int) : Observable<Pokemon>{
         return PokemonApi.instance.listPokemons(limit, offset)
             .flatMap {
-                Observable.from(it.results)
+                Observable.fromIterable(it.results)
                     .flatMap {
                         getPokemon(Uri.parse(it.url).lastPathSegment)
                     }
