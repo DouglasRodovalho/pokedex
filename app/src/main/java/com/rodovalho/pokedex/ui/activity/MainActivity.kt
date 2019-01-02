@@ -60,7 +60,6 @@ class MainActivity : AppCompatActivity() {
             .subscribe(
                 {
                     adapter.add(it)
-                    adapter.notifyDataSetChanged()
                 },
                 {
                     Toast.makeText(this, "Erro ao carregar dados. Mensagem: ${it.message}", Toast.LENGTH_SHORT)
@@ -71,7 +70,6 @@ class MainActivity : AppCompatActivity() {
                         recyclerViewState = null
                     }
                     pb_loading_list.visibility = View.GONE
-                    adapter.notifyDataSetChanged()
                 }
             )
     }

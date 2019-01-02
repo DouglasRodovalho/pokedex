@@ -15,11 +15,11 @@ import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 interface PokemonApi {
-    @GET("pokemon")
+    @GET("pokemon/list_temp.json")
     fun listPokemons(@Query("limit") limit: Int,
                      @Query("offset") offset: Int) : Observable<Response>
 
-    @GET("pokemon/{id}")
+    @GET("pokemon/{id}.json")
     fun getPokemon(@Path("id") id: String) : Observable<Pokemon>
 
     companion object {
@@ -33,14 +33,11 @@ interface PokemonApi {
 
                     val httpClient = OkHttpClient.Builder()
                         .addInterceptor(loggingInterceptor)
-                        .connectTimeout(20, TimeUnit.SECONDS)
-                        .writeTimeout(20, TimeUnit.SECONDS)
-                        .readTimeout(90, TimeUnit.SECONDS)
 
                     val gson = GsonBuilder().setLenient().create()
 
                     val retrofit = Retrofit.Builder()
-                        .baseUrl("http://pokeapi.salestock.net/api/v2/")
+                        .baseUrl("https://api-pokedex.firebaseio.com/")
                         .client(httpClient.build())
                         .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                         .addConverterFactory(GsonConverterFactory.create(gson))

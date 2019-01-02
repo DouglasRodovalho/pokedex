@@ -26,14 +26,12 @@ class PokemonAdapter() : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
 
     fun add(pokemon: Pokemon) {
         pokemons.add(pokemon)
+        notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder (itemView) {
         fun bindView (pokemon: Pokemon) {
-//            itemView.iv_sprite.load("https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png",
-//                itemView.pb_loading_image,
-//                itemView.tv_number)
-            itemView.iv_sprite.load(pokemon.sprites.front_default,
+            itemView.iv_sprite.load(pokemon.sprites.small,
                 itemView.pb_loading_image,
                 itemView.tv_number)
             itemView.tv_name.text = pokemon.name
